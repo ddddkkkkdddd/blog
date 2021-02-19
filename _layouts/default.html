@@ -1,32 +1,63 @@
 <!DOCTYPE html>
-<html lang="en" class="ace ace-card-on ace-tab-nav-on ace-main-nav-on ace-sidebar-on" data-theme-color="#c0e3e7">
-  {% include head.html %}
-  <body>
-    <div class="ace-wrapper">
-      
-      <header id="ace-header" class="ace-container-shift ace-logo-in ace-head-boxed ace-nav-right">
-         <div class="ace-head-inner">
-         </div>
-      </header>
+<html lang="en">
 
-      {% include personal.html %}
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      {{ content }}
-      
-      {% include footer.html %}
-    
-    </div><!-- .ace-wrapper -->
+  <title>{{ site.title }}</title>
+  <meta name="description" content="{{ site.description }}">
 
-    <!-- Scripts -->
-    <script type="text/javascript" src="{{ '/styles/js/vendor/jquery-1.12.4.min.js' | prepend: site.baseurl }}"></script>
-    <script type="text/javascript" src="{{ '/styles/js/plugins/highlight/highlight.pack.js' | prepend: site.baseurl }}"></script>
-    <script type="text/javascript" src="{{ '/styles/js/plugins/jquery.mCustomScrollbar.min.js' | prepend: site.baseurl }}"></script>
-    <script type="text/javascript" src="{{ '/styles/js/plugins/isotope.pkgd.min.js' | prepend: site.baseurl }}"></script>
-    <script type="text/javascript" src="{{ '/styles/js/plugins/progressbar.min.js' | prepend: site.baseurl }}"></script>
-    <script type="text/javascript" src="{{ '/styles/js/plugins/slick.min.js' | prepend: site.baseurl }}"></script>
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ "/assets/favicon/apple-touch-icon.png" | prepend: site.baseurl }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ "/assets/favicon/favicon-32x32.png" | prepend: site.baseurl }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ "/assets/favicon/favicon-16x16.png" | prepend: site.baseurl }}">
+  <link rel="manifest" href="{{ "/assets/favicon/site.webmanifest" | prepend: site.baseurl }}">
 
-    <script type="text/javascript" src="{{ '/styles/js/options.js' | prepend: site.baseurl }}"></script>
-    <script type="text/javascript" src="{{ '/styles/js/main.js' | prepend: site.baseurl }}"></script>
+  <link rel="stylesheet" href="{{ "/assets/css/main.min.css" | prepend: site.baseurl }}">
+  <link rel="stylesheet" href="{{ "/assets/css/vendors.min.css" | prepend: site.baseurl }}">
 
-  </body>
+  <script src="{{ "/assets/js/vendors.min.js" | prepend: site.baseurl }}"></script>
+  <script src="{{ "/assets/js/app.min.js" | prepend: site.baseurl }}"></script>
+</head>
+
+<body>
+  <div id="preloader">
+    <div class="load">
+      <hr />
+      <hr />
+      <hr />
+      <hr />
+    </div>
+  </div>
+  {% include landing-page.html %}
+  <div class="layout">
+    {%if site.show_aboutme_card %}
+      <section class="card neumorphism-card-big">
+        {% include section-aboutme.html %}
+      </section>
+    {% endif %}
+    {%if site.show_skills_card %}
+      <section class="card neumorphism-card-big">
+        {% include section-skills.html %}
+      </section>
+    {% endif %}
+    {%if site.show_timeline_card %}
+      <section class="card neumorphism-card-big">
+        {% include section-timeline.html %}
+      </section>
+    {% endif %}
+    {%if site.show_projects_card %}
+      <section class="card neumorphism-card-big">
+        {% include section-projects.html %}
+      </section>
+    {% endif %}
+    {%if site.show_contact_card %}
+    <section class="card neumorphism-card-big">
+      {% include section-contact.html %}
+    </section>
+    {% endif %}
+  </div>
+  {% include footer.html %}
+</body>
 </html>
